@@ -12,7 +12,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(long id, String name, int age, LocalDate dob, String email) {
+    public Student(long id, String name, String email, int age, LocalDate dob) {
         this.id = id;
         this.name = name;
         this.email = email;
