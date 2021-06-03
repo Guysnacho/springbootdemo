@@ -1,19 +1,23 @@
 package com.example.demo.student;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/student")
 public class StudentController {
 
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
     @GetMapping
-    public List<Student> getStudent() {
-        return List.of(new Student(1L, "Mac", "mac.mald@gmail.com", 21, LocalDate.of(1999, Month.JANUARY, 12)));
+    public List<Student> getStudents() {
+        return studentService.getStudents();
     }
 }
