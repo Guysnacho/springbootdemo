@@ -2,6 +2,7 @@ package com.example.demo.student;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +17,8 @@ public class StudentConfig {
                     LocalDate.of(2000, Month.DECEMBER, 23));
 
             Student Alex = new Student("Alex", "alex.jamal@gmail.com", 20, LocalDate.of(2000, Month.DECEMBER, 23));
+
+            repository.saveAll(List.of(Mariam, Alex));
         };
     }
 }
